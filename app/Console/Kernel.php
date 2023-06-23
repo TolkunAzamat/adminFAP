@@ -7,20 +7,13 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
-    /**
-     * Define the application's command schedule.
-     */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('emails:send')->everyMinute();
-        //$schedule->command('send-vaccine-reminders')->skip('Задача временно остановлена');
+        $schedule->command('emails:send')->
+        everyMinute();
+        // monthly(28);
     }
 
-
-
-    /**
-     * Register the commands for the application.
-     */
     protected function commands(): void
     {
         $this->load(__DIR__.'/Commands');

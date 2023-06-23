@@ -44,18 +44,18 @@
             <div class="form-container">
                 <div class="form-column">
                     <div class="form-group">
-                        <label for="datepicker" class="form-label">Дата рождения</label>
+                        <label for="datepicker" class="form-label">Дата прививки</label>
                     <input type="date" id="datepicker" name="datevaccine" id="title" value="{{ $data->datevaccine }}"class="form-control">
                </div>
                     <div class="form-group">
-                        <label class="form-label" for="email">Адрес:</label>
+                        <label class="form-label" for="email">Наименование прививки</label>
                         <input class="form-control" type="text" name="name" id="title" value="{{ $data->name }}">
                     </div>
                     <div class="form-group">
-                        <label class="form-label" for="email">Телефон:</label>
+                        <label class="form-label" for="email">Возраст:</label>
                         <input class="form-control" type="text" name="age" id="title" value="{{ $data->age }}">
                     </div>
-               
+
                 <div>
                     <input type="submit" class="btn btn-success block m-2">
                 </div>

@@ -16,18 +16,14 @@
                       <div class="col-12 grid-margin stretch-card">
               <div class="card">
                   <div class="card-body">
-            <form method="GET" action="{{url('allresidents')}}">
+                    <form method="GET" action="{{url('allresidents')}}">
 
-                <div class="flex space-x-2">
-                <div class="flex space-x-2">
-                    <input type="text" name="surname" placeholder="Введите фамилию">
-                    <button type="submit" class="btn btn-primary">Найти</button>
-                    </div>
-                    <div style="margin-left: 60%">
-                        <button type="button" class="btn btn-success"> <a href="{{url('add_chronic_view')}}">Добавить+</a> </button>
-                    </div>
-                </div>
-            </form>
+                        <div class="flex space-x-2">
+                            <div style="margin-left: 90%">
+                                <button type="button" class="btn btn-success top-right-link" > <a href="{{url('add_chronic_view')}}">Добавить+</a> </button>
+                            </div>
+                        </div>
+                    </form>
         </div>
     <table class="min-w-full border-collapse">
         <thead>

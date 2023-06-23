@@ -15,23 +15,21 @@
                     <div class="row">
                       <div class="col-12 grid-margin stretch-card">
               <div class="card">
-                  <div class="card-body">
-                    <div class="card-body">
-                        <form method="GET" >
 
-                            <div class="flex space-x-2">
-                            <div class="flex space-x-2">
-                                <input type="text" name="surname" placeholder="Введите фамилию">
-                                <button type="submit" class="btn btn-primary">ser</button>
-                                </div>
-                                <div style="margin-left: 60%">
-                                    <button type="button" class="btn btn-success"> <a href="{{url('addOutpatientscard')}}">Добавить+</a> </button>
-                                </div>
+                <div class="card-body">
+                    <form method="GET" action="{{url('allresidents')}}">
+
+                        <div class="flex space-x-2">
+                            <div style="margin-left: 90%">
+                                <button type="button" class="btn btn-success top-right-link" > <a href="{{url('add_plain_view')}}">Добавить+</a> </button>
                             </div>
-                        </form>
-                    </div>
-</form>
-</div>
+                        </div>
+                    </form>
+                    <div class="flex justify-center items-center">
+                        <h1 class="text-2xl font-bold mb-2">План прививок</h1>
+                      </div>
+
+                </div>
 <table class="min-w-full border-collapse">
 <thead>
 <tr >
@@ -79,7 +77,48 @@
           </div>
         </div>
       </div>
+      <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="flex justify-center items-center">
+                    <h1 class="text-2xl font-bold mb-2">Список жителей</h1>
+                  </div>
+                <table class="min-w-full border-collapse">
+                    <thead>
+                        <tr >
+                            <th class="py-1 px-2 border-b ">Фамилия</th>
+                            <th class="py-1 px-2 border-b ">Имя</th>
+                            <th class="py-1 px-2 border-b ">Отчество </th>
+                            <th class="py-1 px-2 border-b ">Дата рождения </th>
+                            <th class="py-1 px-2 border-b ">Вакцина </th>
+                            <th class="py-1 px-2 border-b ">Возраст </th>
+                            <th class="py-1 px-2 border-b ">День вакцинации </th>
+
+                        </tr>
+                    </thead>
+                    <tbody id="list">
+                        @foreach ($vaccineData as $row)
+                        <tr>
+                            <td class="py-1 px-2 border-b ">{{ $row[0] }}</td>
+                            <td class="py-1 px-2 border-b ">{{ $row[1] }}</td>
+                            <td class="py-1 px-2 border-b ">{{ $row[2] }}</td>
+                            <td class="py-1 px-2 border-b ">{{ $row[3] }}</td>
+                            <td class="py-1 px-2 border-b ">{{ $row[4] }}</td>
+                            <td class="py-1 px-2 border-b ">{{ $row[5] }}</td>
+                            <td class="py-1 px-2 border-b ">{{ $row[6] }}</td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+              </div>
+            </div>
+        </div>
+      </div>
   </div>
+      </div>
+    </div>
+
+
 @include('doctor.script')
 
 </body>

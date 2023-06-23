@@ -47,9 +47,9 @@
       <li class="nav-item menu-items">
         <a class="nav-link" href="{{url('allPlainVaccine')}}">
           <span class="menu-icon">
-            <i class="mdi mdi-email"></i>
+            <i class="mdi mdi-calendar-month-outline"></i>
           </span>
-          <span class="menu-title">Уведомления</span>
+          <span class="menu-title">План прививок</span>
         </a>
       </li>
       <li class="nav-item menu-items">
@@ -60,14 +60,22 @@
           <span class="menu-title">Медкарты</span>
         </a>
       </li>
-      {{-- <li class="nav-item menu-items">
-        <a class="nav-link" href="#">
+      <li class="nav-item menu-items">
+        <a class="nav-link" href="{{url('reports')}}">
           <span class="menu-icon">
             <i class="mdi mdi-file-chart"></i>
           </span>
           <span class="menu-title">Отчеты</span>
         </a>
-      </li> --}}
+      </li>
+      <li class="nav-item menu-items">
+        <a class="nav-link" href="{{url('charts')}}">
+          <span class="menu-icon">
+            <i class="mdi mdi-finance"></i>
+          </span>
+          <span class="menu-title">Статистика</span>
+        </a>
+      </li>
 
 
     </ul>

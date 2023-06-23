@@ -70,16 +70,44 @@ public function addview()
             $card->save();
              return redirect()->back()->with('success', 'Данные успешно обновлены.');
         }
-        public function addContent($id)
+        // public function addContent($id)
+        // {
+        //     // Получите медкарту по идентификатору $id из базы данных или другого источника данных
+        //     $medcard = OutpatientCard::find($id);
+        //     if (!$medcard) {
+        //         abort(404);
+        //     }
+        //     $contents = ContentCard::where('id', $medcard->id)->get();
+        //     return view('doctor.addContent', ['medcard' => $medcard,'contents' => $contents]);
+        // }
+        public function showContent($card_id)
         {
-            // Получите медкарту по идентификатору $id из базы данных или другого источника данных
-            $medcard = OutpatientCard::find($id);
-            if (!$medcard) {
-                abort(404);
-            }
-            $contents = ContentCard::where('id', $medcard->id)->get();
-            return view('doctor.addContent', ['medcard' => $medcard,'contents' => $contents]);
+            $card = OutpatientCard::find($card_id);
+            $contentList = ContentCard::where('card_id', $card_id)->get();
+            return view('doctor.addContent', compact('card', 'contentList'));
         }
 
-        
+
+        public function storeContent(Request $request, $id)
+        {
+            // Получение медкарты по ID
+            $medcard = OutpatientCard::find($id);
+
+            // Создание нового объекта содержания
+            $content = new ContentCard();
+            $content->card_id = $medcard->id;
+            $content->user_id= $request->input('user_id');
+            $content->fullname= $request->input('fullname');
+            $content->dateOfRegistration= $request->input('dateOfRegistration');
+            $content->reasonForRegistration= $request->input('reasonForRegistration');
+            $content->dateOfDeregistration= $request->input('dateOfDeregistration');
+            $content->reasonForDeregistration= $request->input('reasonForDeregistration');
+            $content->numberMC= $request->input('numberMC');
+
+            $content->save();
+
+            // Перенаправление пользователя на страницу добавления содержания
+            return redirect()->route('doctor.addContent', $medcard->id);
+        }
+
     }

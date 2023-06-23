@@ -56,7 +56,7 @@ public function addview()
             return redirect()->back();
         }
 
-    public function updateInfection($id)
+    public function updateChronic($id)
     {
         $data = ChronicOutpatients::find($id);
     return view('doctor.updateChronicPatients',compact('data'));

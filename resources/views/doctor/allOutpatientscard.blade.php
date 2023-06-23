@@ -15,18 +15,14 @@
                       <div class="col-12 grid-margin stretch-card">
               <div class="card">
                   <div class="card-body">
-            <form method="GET" >
+                    <form method="GET" action="{{url('allresidents')}}">
 
-                <div class="flex space-x-2">
-                <div class="flex space-x-2">
-                    <input type="text" name="surname" placeholder="Введите фамилию">
-                    <button type="submit" class="btn btn-primary">ser</button>
-                    </div>
-                    <div style="margin-left: 60%">
-                        <button type="button" class="btn btn-success"> <a href="{{url('addOutpatientscard')}}">Добавить+</a> </button>
-                    </div>
-                </div>
-            </form>
+                        <div class="flex space-x-2">
+                            <div style="margin-left: 90%">
+                                <button type="button" class="btn btn-success top-right-link" > <a href="{{url('addOutpatientscard')}}">Добавить+</a> </button>
+                            </div>
+                        </div>
+                    </form>
         </div>
     <table class="min-w-full border-collapse">
         <thead>
@@ -56,7 +52,7 @@
                         </a>
                     </td>
                     <td class="py-2 px-1 border-b">
-                        <a href="{{ url('medcard',$resident->id)}} class="text-blue-500 hover:text-blue-700">
+                        <a href="{{ url('addContent',$resident->id)}} class="text-blue-500 hover:text-blue-700">
                             <edit-icon style="align: center"><span class="mdi mdi-plus-box"></span>
                               </edit-icon>
                         </a>

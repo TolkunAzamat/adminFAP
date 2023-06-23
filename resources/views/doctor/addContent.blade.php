@@ -15,10 +15,11 @@
                       <div class="col-12 grid-margin stretch-card">
               <div class="card">
                   <div class="card-body">
-                    <form action="{{ route('content', $cardId) }}" method="POST">
+                    <form action="{{ route('addContent.store', $medcard) }}" method="POST">
                          @csrf <!-- Поле для внешнего ключа idmedcard -->
-                         <input type="hidden" name="idmedcard" value="{{ $cardId }}">
+                         <input type="hidden" name="idmedcard" value="{{ $medcard }}">
                           <!-- Поле для даты обращения -->
+                          
                           <div class="form-group"> <label for="dateOfVisit">Дата обращения:</label>
                              <input type="date" id="dateOfVisit" name="dateOftheApplication" class="form-control" required>
                             </div> <!-- Поле для диагноза -->
@@ -30,10 +31,6 @@
                                        <label for="diagnosis">Первичный диагноз:</label>
                                         <input type="text" id="diagnosis" name="firstTimeDiagnosis" class="form-control" required>
                                        </div>
-                                       <div class="form-group">
-                                        <label for="diagnosis">Доктор</label>
-                                         <input type="text" id="diagnosis" name="doctor" class="form-control" required>
-                                        </div>
                                         <div class="form-group">
                                             <label for="diagnosis">Жалобы пациента:</label>
                                              <input type="text" id="diagnosis" name="patient_complaints" class="form-control" required>
@@ -43,7 +40,6 @@
                                                  <input type="text" id="diagnosis" name="appointmet" class="form-control" required>
                                                 </div>
                                                 <input type="submit" class="btn btn-success block m-2">
-
                                  </form>
               </div>
 
@@ -53,19 +49,22 @@
                         <thead>
                             <tr >
                                 <th class="py-1 px-2 border-b ">Дата обращения</th>
+                                <th class="py-1 px-2 border-b ">Первичный диагноз</th>
+                                <th class="py-1 px-2 border-b ">Жалобы пациента  </th>
                                 <th class="py-1 px-2 border-b ">Окончательный диагноз</th>
-                                <th class="py-1 px-2 border-b ">Первичный диагноз </th>
-                                <th class="py-1 px-2 border-b ">Доктор </th>
-                                <th class="py-1 px-2 border-b ">Жалобы пациента </th>
                                 <th class="py-1 px-2 border-b ">Назначение </th>
                             </tr>
                         </thead>
                         <tbody id="list">
-                            @if(isset($contents))
-                            @foreach($contents as $content)
+                            @if(isset($content))
+                            @foreach($content as $contents)
                                 <tr>
 
-                                    {{-- <td class="py-2 px-1 border-b">{{ $contents-> }} </td> --}}
+                                    <td class="py-2 px-1 border-b">{{ $contents->dateOftheApplication }} </td>
+                                    <td class="py-2 px-1 border-b">{{ $contents->firstTimeDiagnosis }} </td>
+                                    <td class="py-2 px-1 border-b">{{ $contents->patient_complaints }} </td>
+                                    <td class="py-2 px-1 border-b">{{ $contents->finalDiagnosis }} </td>
+                                    <td class="py-2 px-1 border-b">{{ $contents->appointmet }} </td>
 
 
                                 </tr>

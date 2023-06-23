@@ -54,7 +54,21 @@ class SendEmailController extends Controller
           $query = Vaccine::where('user_id', $currentUser->id)->orderBy('datevaccine', 'asc');
           $name = $request->input('name');
           $plain = $query->where('name', 'like', '%' . $name . '%')->get();
-          return view('doctor.allPlainVaccine', ['plain' => $plain]);
+
+          $currentMonth = now()->format('m');
+        //   $currentMonth = Carbon::now()->addMonth()->format('m');
+        $vaccines = Vaccine::whereMonth('datevaccine', $currentMonth)->get();
+
+        $vaccineData = [];
+
+        foreach ($vaccines as $vaccine) {
+            $users = Residents::whereRaw("TIMESTAMPDIFF(YEAR, date, CURDATE()) = ?", [$vaccine->age])->get();
+
+            foreach ($users as $user) {
+                $vaccineData[] = [$user->surname,$user->name,$user->patronymic,$user->date, $vaccine->name,$vaccine->age,$vaccine->datevaccine];
+            }
+        }
+          return view('doctor.allPlainVaccine', ['plain' => $plain,'vaccineData' => $vaccineData]);
 
       }
 //Метод для удаления записи
@@ -82,6 +96,7 @@ class SendEmailController extends Controller
       $plain->save();
       return redirect()->back()->with('success', 'Данные успешно обновлены.');
   }
+
 }
 
 

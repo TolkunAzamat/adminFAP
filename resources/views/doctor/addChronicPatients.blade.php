@@ -25,7 +25,7 @@
         <div class="card">
             <div class="card-body">
         <div class="flex justify-center items-center">
-            <h1 class="text-2xl font-bold mb-2">Добавить</h1>
+            <h1 class="text-2xl font-bold mb-2">Хронические болезни</h1>
           </div>
           <div class="form-cardview">
     <form action="{{url('upload_chronic')}}" method="POST" enctype="multipart/form-data">
@@ -43,11 +43,11 @@
             </div>
             <div class="form-group">
                 <label for="datepicker" class="form-label">Дата регистрации</label>
-            <input type="date" id="datepicker" name="dateOfRegistration" class="form-control">
+            <input type="date" id="datepicker" name="dateOfRegistration" class="form-control" required>
         </div>
         <div class="form-group">
             <label for="datepicker" class="form-label">Диагноз</label>
-        <input type="text" name="diagnosis" class="form-control">
+        <input type="text" name="diagnosis" class="form-control" required>
     </div>
 
 

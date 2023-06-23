@@ -25,7 +25,7 @@
         <div class="card">
             <div class="card-body">
         <div class="flex justify-center items-center">
-            <h1 class="text-2xl font-bold mb-2">Добавить</h1>
+            <h1 class="text-2xl font-bold mb-2">Журнал беременных</h1>
           </div>
           <div class="form-cardview">
     <form action="{{url('upload_pergnant')}}" method="POST" enctype="multipart/form-data">
@@ -69,7 +69,7 @@
         <input type="date" id="datepicker" name="whenGaveBirth" class="form-control">
     </div>
         <div>
-            <input type="submit" class="btn btn-success block m-2">
+            <input type="submit" class="btn btn-success block m-2"  >
         </div>
     </form>
 </div>

@@ -4,7 +4,13 @@
   <head>
     <base href="/public">
  @include('doctor.css')
-
+ <style>
+    .top-right-link {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+</style>
 </head>
   <body>
     <div class="container-scroller">
@@ -19,12 +25,8 @@
             <form method="GET" action="{{url('allresidents')}}">
 
                 <div class="flex space-x-2">
-                <div class="flex space-x-2">
-                    <input type="text" name="surname" placeholder="Введите фамилию">
-                    <button type="submit" class="btn btn-primary">Найти</button>
-                    </div>
-                    <div style="margin-left: 60%">
-                        <button type="button" class="btn btn-success"> <a href="{{url('add_residents_view')}}">Добавить+</a> </button>
+                    <div style="margin-left: 90%">
+                        <button type="button" class="btn btn-success top-right-link" > <a href="{{url('add_residents_view')}}">Добавить+</a> </button>
                     </div>
                 </div>
             </form>

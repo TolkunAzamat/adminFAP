@@ -38,7 +38,7 @@ class BirthdayReminderMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'FAP',
+            subject: 'ФАП',
         );
     }
 

@@ -47,24 +47,13 @@ class AllResidentsController extends Controller
 //Метод для получения и вывода списка всех жителей
         public function allResidents( Request $request)
         {
-            // $currentUser = auth()->user();
-            // $query = Residents::where('user_id', $currentUser->id)->orderBy('surname', 'asc');
+            $currentUser = auth()->user();
+            $query = Residents::where('user_id', $currentUser->id)->orderBy('surname', 'asc');
             $user = Auth::user();
             $relatedUsers = Residents::where('user_id', $user->id)->get();
-            // $surname = $request->input('surname');
-            // $residents = $query->where('surname', 'like', '%' . $surname . '%')->get();
-            // $twoMonthsAgo = now()->subMonths(2);
-            // $threeMonthsAgo = now()->subMonths(3);
-            // $fiveYearsAgo = now()->subYears(5);
-
-            // $residents = $query
-            //     ->where('date', '>=', $twoMonthsAgo)
-            //     ->orWhere('date', '>=', $threeMonthsAgo)
-            //     ->orWhere('date', '>=', $fiveYearsAgo)
-            //     ->get();
-           // $residents =  Residents::whereRaw("TIMESTAMPDIFF(MONTH, date, CURDATE()) IN (2, 3)")->get();
-            return view('doctor.allresidents', ['relatedUsers'=>$relatedUsers]);
-
+            $surname = $request->input('surname');
+            $residents = $query->where('surname', 'like', '%' . $surname . '%')->get();
+             return view('doctor.allresidents', ['relatedUsers'=>$relatedUsers]);
         }
 //Метод для удаления записи
         public function deleteResident($id)

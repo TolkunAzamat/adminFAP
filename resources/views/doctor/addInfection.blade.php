@@ -25,7 +25,7 @@
         <div class="card">
             <div class="card-body">
         <div class="flex justify-center items-center">
-            <h1 class="text-2xl font-bold mb-2">Добавить</h1>
+            <h1 class="text-2xl font-bold mb-2">Инфекционные болезни</h1>
           </div>
           <div class="form-cardview">
     <form action="{{url('upload_infection')}}" method="POST" enctype="multipart/form-data">
